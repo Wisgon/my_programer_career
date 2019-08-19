@@ -8,7 +8,7 @@
 - Environment 开发环境和系统环境相关
   - [mac使用心得](./environment/mac使用心得.md)
   - [mac常用快捷键](./environment/mac常用快捷键.md)
-  - [typora使用心得](./environment/typora使用心得)
+  - [typora使用心得](./environment/typora使用心得.md)
   - [vim常用快捷键](./environment/vim常用快捷键.md)
 - Front-end 前端开发心得笔记
   - [css学习笔记](./front-end/css学习笔记.md)
