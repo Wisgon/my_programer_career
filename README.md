@@ -3,6 +3,10 @@
 #### Description
 程序员生涯中学习实践的笔记
 
+#### Author: 
+
+陈智龙 2019-08-19
+
 #### Software Architecture
 - AI 深度学习笔记
 - Environment 开发环境和系统环境相关
@@ -21,4 +25,4 @@
 - static 图片或者视频等静态文件
 - python python开发心得笔记
 
-#### Author: 陈智龙 2019-08-19
+#### 
