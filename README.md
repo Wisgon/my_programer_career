@@ -17,7 +17,7 @@
 - go go语言开发心得笔记
 - others 其他杂项
   - [今日总结](./others/今日总结.md)
-  - [有用的东西](./othres/有用的东西.md)
+  - [有用的东西](./others/有用的东西.md)
 - static 图片或者视频等静态文件
 - python python开发心得笔记
 

@@ -1,12 +1,12 @@
-Mac OSX 快捷键&命令行
+Mac OSX 快捷键&命令行  
 
-一.Mac OSX 快捷键
+一.Mac OSX 快捷键  
 
-ctrl+shift 快速放大dock的图标会暂时放大，而如果你开启了dock放大
+ctrl+shift 快速放大dock的图标会暂时放大，而如果你开启了dock放大  
 
-Command+Option+W 将所有窗口关闭
+Command+Option+W 将所有窗口关闭  
 
-Command+W 将当前窗口关闭(可以关闭Safari标签栏,很实用)
+Command+W 将当前窗口关闭(可以关闭Safari标签栏,很实用)  
 
 Command+Option+H+M 将所有窗口最小化
 
