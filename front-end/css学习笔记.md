@@ -9,11 +9,11 @@
 
 <br><br>
 
-2. 设置ul的display属性值为”inline-box“的时候，li会出现顶上留白的问题，解决方法：
+2. 设置ul的display属性值为”inline-block“的时候，li会出现顶上留白的问题，解决方法：
 
    - 将ul的display属性改为”flex“，问题解决，但是必须有设置float属性；
    - 还有一种更好解决办法是margin设置为0；
-   - 还有一种方法是父元素设置vertical-align: top;<br><br>
+   - 还有一种方法是所有inline-block的元素设置vertical-align: top;<br><br>
 
 3. 我们经常使用浮动，但浮动并不是唯一的解决方案。有时候inline-block会更好，特别是你想排列一些图片，或者横向排列链接时。Inline-block元素带有一些行内元素的特征（横向排列），同时内部也拥有块级元素的属性。这个跟浮动很类似，只不过有些区别。这些区别决定了你该使用哪种方案。如果你很纠结垂直对齐问题或者横向排列元素，不妨使用inline-block。如果你需要对一个元素跟围绕他的一些元素进行更多控制，你需要浮动；<br><br>
 
@@ -79,4 +79,6 @@
 11. *逻辑维度*  
   逻辑属性定义块和内联维度的开始和结束属性。对于高度和宽度属性，我们改为使用`block-size`和`inline-size`。我们还可以设置`max-block-size`、`min-block-size`、`max-inline-size`和`min-inline-size`。如果您使用的是英语，则从上到下的横向语言`block-size`是指`height`屏幕上块`inline-size`的物理特性`width`，即物品的物理特性。如果您使用的是垂直运行的语言，那么当您查看屏幕时，`block-size`将会出现控制`width`和`inline-size`高度的情况。<br><br>
   
-12. 
+12. 任何属性都有initial值，表示不进行任何设置，为元素保持最初的属性值，即使父元素有属性要继承，也不会继承；<br><br> 
+
+13. 
