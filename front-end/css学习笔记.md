@@ -74,7 +74,6 @@
    其中vertical-container是父元素的class，子元素不用设置css属性即可居中；<br><br>
 
 10. *逻辑属性*
-
    所谓CSS逻辑属性，指的是`*-start`，`*-end`以及`*-inline-start`，`*-inline-end`，`*-block-start`，`*-block-start`这类CSS属性，其最终渲染的方向是有逻辑性在里面的。
 
    例如`margin-left`方向是固定的，就左侧间距，没有逻辑；但是，`margin-start`有可能是左间距，也有可能是右间距，例如，对于内联元素，如果`direction`属性值是`rtl`，则`margin-start`的表现等同于`margin-right`，如果属性值是`ltr`，则`margin-start`的表现等同于`margin-left`，就表现出了逻辑判断在里面，因此，成为CSS逻辑属性。<br><br>
