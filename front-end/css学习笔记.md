@@ -81,4 +81,49 @@
   
 12. 任何属性都有initial值，表示不进行任何设置，为元素保持最初的属性值，即使父元素有属性要继承，也不会继承；<br><br> 
 
-13. 
+13. 可以用css的transform属性做轮播图，transform属性中，有个translate3d的属性方法，接受3个参数，分别是x,y,z轴坐标，例子：
+   html代码：
+
+   ```html
+   <div class="window-div">
+           <div class="lunbo-div">
+               <div class="image" style="width:100px;height: 100px; background-color: red"></div>
+               <div class="image" style="width:100px;height: 100px; background-color: green"></div>
+               <div class="image" style="width:100px;height: 100px; background-color: blue"></div>
+           </div>
+       </div>
+   ```
+
+   css代码：
+
+   ```css
+   .window-div {
+       width: 100px;
+       height: 100px;
+       overflow: hidden;
+       position: relative;
+       left: 1000px;
+     }
+   
+     .lunbo-div {
+       position: absolute;
+       overflow: hidden;
+       width: 350px;
+       transition-duration: 0.5s;
+       transform: translate3d(-200px, 0px, 0px);
+       backface-visibility: hidden;
+       overflow: hidden;
+     }
+   
+     .image {
+       display: inline-block;
+     }
+   ```
+
+   这样子的话，window-div是父div，负责显示窗口，lunbo-div是轮播图的div，有三个子元素是3个图片div，当transform的属性值translated3d的x坐标设置为-200px时，显示的是第三个图片，因为lunbo-div已经向父元素向左缩进了200px的位置，而父元素的overflow属性是hidden，所以现在window-div显示的是第三张图片，transition-duration是过渡效果时间，我们现在只需要用js代码定时地改变transform的translated3d的x轴坐标，就可以做到轮播效果了，而改变的过渡效果实践由transition-duration控制；
+   
+14. 浏览器请求资源时，都会先判断是否有缓存，若有缓存且未过期则会从缓存中读取，不会再次请求。先加载的图片会存储到浏览器缓存中，后面再次请求同路径图片时会直接读取缓存中的图片。
+
+15. 两个css类都作用在同一个元素中，如`<a class="c1 c2">`，这时，如果c1和c2都定义了同一个属性，比如width，那么，a的width究竟是什么并不取决于标签中“class=”那里是先写c1还是c2，而是取决于css表哪个最后加载（如果c1和c2不在同一个css文件的话）或者在同一个css文件中，哪个更后定义；
+
+16. 

@@ -24,5 +24,11 @@
   - [有用的东西](./others/有用的东西.md)
 - static 图片或者视频等静态文件
 - python python开发心得笔记
+- rust rust学习与实践心得笔记  
+  - [开发环境](./rust/开发环境.md)
+
+#### 本人csdn地址：https://me.csdn.net/qq_34877350
+
+
 
 #### 
