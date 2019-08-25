@@ -7,4 +7,6 @@
 
 3. 图片区域截图快捷键是ctrl+shift+command+4，然后可以选区域，如果就是当前窗口，则加按一个空格键，就可以了，这时候会截屏到剪贴板，然后在微信或其他文本编辑器上黏贴，如果按的是shift+command+4则是截屏后在右下角会有一个截图缩略图出来，按一下就弹到截图编辑上了；<br><br> 
 
-4. 
+4. 不要每次brew install xxx 都update：`vim ~/.bash_profile`，最后一行加入：`export HOMEBREW_NO_AUTO_UPDATE=true`，就可以了；<br><br> 
+
+5. 
