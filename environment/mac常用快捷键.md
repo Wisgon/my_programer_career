@@ -140,6 +140,8 @@ Alt + delete：删除一个单词
 
 Command+r   刷新网页
 
+Command+shift+r  强制刷新网页
+
 
 
 # Mac 键盘快捷键
