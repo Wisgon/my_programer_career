@@ -68,8 +68,7 @@
      ```python
      import handle
      handle.ret_py_dict(...)
-```
-     
+     ```
 
 <br><br> 
 
