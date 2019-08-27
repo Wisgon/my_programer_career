@@ -56,6 +56,8 @@ Fn + ↓：pagedown
 
 先Command+C复制一个文件，然后在目标文件夹，按Option+Command+v可以将该文件移动到此处
 
+alt+command+delete：永久删除文件
+
 
 
 
@@ -91,6 +93,8 @@ Ctrl + p 调出命令历史中的前一条（Previous）命令，相当于通常
 Ctrl + n 调出命令历史中的下一条（Next）命令，相当于通常的上箭头
 
 Ctrl + r 显示：号提示，根据用户输入查找相关历史命令（reverse-i-search）
+
+
 
 次常用快捷键：
 

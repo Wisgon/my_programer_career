@@ -12,5 +12,7 @@
 
    `$lsof -nP -i | grep QQ`   查看QQ程序的pid
    `$kill -9 pid`  杀pid
-
+`$lsof -nP -i | grep 127.0.0.1:6942`  查看具体ip:port
+   
 3. 
+

@@ -28,6 +28,50 @@
 
    a=3：并没有声明一个新的变量，只是往它的外层寻找变量名为a的变量，并给它赋值3。（假设外层都没有声明a，那么会找到window上的变量a）；<br><br> 
 
-3. JavaScript默认有一个全局对象`window`，全局作用域的变量实际上被绑定到`window`的一个属性；<br><br> 
+3. JavaScript默认有一个全局对象`window`，全局作用域的变量实际上被绑定到`window`的一个属性；<br><br>
 
-4. 
+4.  有些时候，如果变量已经被声明了，再次赋值的时候，正确的写法也会报语法错误：
+
+   ```javascript
+   // 声明变量:
+   var x, y;
+   // 解构赋值:
+   {x, y} = { name: '小明', x: 100, y: 200};
+   // 语法错误: Uncaught SyntaxError: Unexpected token =
+   ```
+
+   这是因为JavaScript引擎把"`{`"开头的语句当作了块处理，于是`=`不再合法。解决方法是用小括号括起来：
+
+   ```
+   ({x, y} = { name: '小明', x: 100, y: 200});
+   ```
+
+   <br><br> 
+
+5. 如下面的代码所示：如果以对象的方法形式调用，比如`xiaoming.age()`，该函数的`this`指向被调用的对象，也就是`xiaoming`，这是符合我们预期的。
+
+   如果单独调用函数，比如`getAge()`，此时，该函数的`this`指向全局对象，也就是`window`。
+
+   ```javascript
+   function getAge() {
+       var y = new Date().getFullYear();
+       return y - this.birth;
+   }
+   
+   var xiaoming = {
+       name: '小明',
+       birth: 1990,
+       age: getAge
+   };
+   
+   xiaoming.age(); // 25, 正常结果
+   getAge(); // NaN
+   ```
+
+   <br><br> 
+
+6. `Array`的`sort()`方法默认把所有元素先转换为String再排序；<br><br> 
+
+7. 谷歌浏览器查看js耗时，首先，调出开发者工具，然后选择“performance”，按下左边第二排第二个带箭头的圆形按钮，开始记录，然后就可以在“Sources”里点开js文件查看各个函数的耗时了；<br><br> 
+
+8. 

@@ -1,3 +1,11 @@
+###我的一些快捷键的更改：
+- 原先command+enter另起一行的改为enter，而原先enter改为command+enter；
+- 删除一行的快捷键command+shift+k，改为alt+shift+k；
+- 代码提示插入的快捷键tab禁掉，改用enter代替；
+- 格式化代码改为ctrl+alt+L；
+  <br><br> 
+
+###心得笔记：
 1. 禁止tab代码自动补全：
    - keymap里面，找到“choose lookup item replace”，把tab的绑定取消；
    - Editor->Live Templates  "by default expand with" 改成“Enter”；<br><br> 
