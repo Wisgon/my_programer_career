@@ -1,0 +1,69 @@
+###JetBrains系列的永久破解方法
+随着2019版的到来，之前的永久激活教程也不生效了，所以今天为大家带来一种新的Idea永久激活方式，本教程适用Windows、Mac、Ubuntu等所有平台。
+
+###激活前准备工作
+
+- 配置文件修改已经不在bin目录下直接修改，而是通过Idea修改
+
+- 如果输入code一直弹出来，请去hosts里移除jetbrains相关的项目
+
+  
+### 激活前必下软件
+- JetBrains的各类软件及破解补丁（与下面的补丁一样任选其一）
+    链接：https://share.weiyun.com/5ZVSrQ9 密码：Delong
+
+1.下载新版破解补丁
+    点击链接 https://pan.baidu.com/s/16ALpz_BCXjsRkpS_PtD23A 或阅读原文下载补丁文件 jetbrains-agent.jar 并将它放置到 Idea安装目录的\bin目录下（位置可随意，放这里是怕误操作删除了破解文件）。（已下载）
+
+2.进入项目界面
+如果你之前已经使用有效期激活过可跳过此步骤，如果你是刚下载的Idea，则需要点击激活窗口的“Evaluate for free”免费试用，然后再创建一个空项目，这样就可以进入到Idea的工作页面。
+
+![image-20190820103734972](../static/20190410001443942.png)
+
+
+
+![image-20190820103734972](../static/20190410001535457.png)
+
+3.修改配置文件
+
+  - 进入到项目界面后，点击Idea最上面的菜单栏中的 “Help” -> “Edit Custom VM Options …”，如果提示是否要创建文件，请点”Yes”。
+    ![image-20190820103734972](../static/20190410001807576.png)
+
+  - 在打开的vmoptions编辑窗口末行添加：-javaagent:你idea的安装目录\jetbrains-agent.jar
+    ![image-20190820103734972](../static/20190410001933172.png)
+
+  - 请仔细检查补丁路径是否正确，如果错误则会出现Idea打不开的情况，这时候可以删除用户配置目录下的Idea文件夹:
+    windwos：C:\Users\用户名
+    macos：~/Library/Preferences/
+    ubuntu：~/.
+    ![image-20190820103734972](../static/20190410002053906.png)
+
+  - 修改完配置文件之后重启Idea
+
+  - 修改完配置文件之后重启Idea
+
+  - 修改完配置文件之后重启Idea
+
+4. 输入激活码
+   - 重启Idea之后，点击菜单栏中的 “Help” -> “Register …”，这里有两种激活方式：
+
+  一、选择最后一种License server激活方式，地址填入：http://jetbrains-license-server （应该会自动填上），或者点击按钮：”Discover Server”来自动填充地址，完成激活
+
+![image-20190820103734972](../static/20190410002218464.png)
+
+  二、如果服务器激活方式无法激活，还可以选择Activation code方式激活，复制下面激活码即可
+
+![image-20190820103734972](../static/201904100022584.png)
+
+秘钥：
+D00F1BDTGF-eyJsaWNlbnNlSWQiOiJEMDBGMUJEVEdGIiwibGljZW5zZWVOYW1lIjoiaHR0cHM6Ly96aGlsZS5pbyIsImFzc2lnbmVlTmFtZSI6IiIsImFzc2lnbmVlRW1haWwiOiIiLCJsaWNlbnNlUmVzdHJpY3Rpb24iOiJVbmxpbWl0ZWQgbGljZW5zZSB0aWxsIGVuZCBvZiB0aGUgY2VudHVyeS4iLCJjaGVja0NvbmN1cnJlbnRVc2UiOmZhbHNlLCJwcm9kdWN0cyI6W3siY29kZSI6IklJIiwicGFpZFVwVG8iOiIyMDg5LTA3LTA3In0seyJjb2RlIjoiUlMwIiwicGFpZFVwVG8iOiIyMDg5LTA3LTA3In0seyJjb2RlIjoiV1MiLCJwYWlkVXBUbyI6IjIwODktMDctMDcifSx7ImNvZGUiOiJSRCIsInBhaWRVcFRvIjoiMjA4OS0wNy0wNyJ9LHsiY29kZSI6IlJDIiwicGFpZFVwVG8iOiIyMDg5LTA3LTA3In0seyJjb2RlIjoiREMiLCJwYWlkVXBUbyI6IjIwODktMDctMDcifSx7ImNvZGUiOiJEQiIsInBhaWRVcFRvIjoiMjA4OS0wNy0wNyJ9LHsiY29kZSI6IlJNIiwicGFpZFVwVG8iOiIyMDg5LTA3LTA3In0seyJjb2RlIjoiRE0iLCJwYWlkVXBUbyI6IjIwODktMDctMDcifSx7ImNvZGUiOiJBQyIsInBhaWRVcFRvIjoiMjA4OS0wNy0wNyJ9LHsiY29kZSI6IkRQTiIsInBhaWRVcFRvIjoiMjA4OS0wNy0wNyJ9LHsiY29kZSI6IkdPIiwicGFpZFVwVG8iOiIyMDg5LTA3LTA3In0seyJjb2RlIjoiUFMiLCJwYWlkVXBUbyI6IjIwODktMDctMDcifSx7ImNvZGUiOiJDTCIsInBhaWRVcFRvIjoiMjA4OS0wNy0wNyJ9LHsiY29kZSI6IlBDIiwicGFpZFVwVG8iOiIyMDg5LTA3LTA3In0seyJjb2RlIjoiUlNVIiwicGFpZFVwVG8iOiIyMDg5LTA3LTA3In1dLCJoYXNoIjoiODkwNzA3MC8wIiwiZ3JhY2VQZXJpb2REYXlzIjowLCJhdXRvUHJvbG9uZ2F0ZWQiOmZhbHNlLCJpc0F1dG9Qcm9sb25nYXRlZCI6ZmFsc2V9-3OPFIX9/KSL76ctAKOwpBPCCAfUhUbucdNbtqMaTqRryvKEvrFqCKncE0eMHA2YkrcP2CtV9LKjlIXhJMqp0N821Qv1AhuIJrDMBubqiEtiqnGkcGV35DF0GzyUQaUdN6fTbZna05riHzR6yzgEzo9R3RIzCTDMQdB/0EojWM0nCBkPsLdncZeDv3+Y+VA8ZH3/BBvzwR1e0gWsT3mfT9tIvwxPuEhNrQFNOP1PZOjC8nX9h/J7ag5X3JQL1CQVi4TnEipdy0fxKbDPKTloM3Y/bA23uaW+Q/JQFBRKRR0q3FYJ1DQuSc7YmeJ7Q2IHq7u5QYz8jPZJtP6PKs6g/tQ==-MIIECDCCAfCgAwIBAgIJAI5/xwNtz47cMA0GCSqGSIb3DQEBCwUAMBgxFjAUBgNVBAMMDUpldFByb2ZpbGUgQ0EwIBcNMTgwODIzMDcwNDA3WhgPMjExODA3MzAwNzA0MDdaMBExDzANBgNVBAMMBnByb2QzeTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAOZ3WopNRg9J8k3apGYFEUGRlvkRsQnQSEz1yMKY4YWg9ElxmuF0mQRAaIj3WOl1eqTn1CXsn4vXV7GODJk9A/rCqEk960sPesWn/RVz7zo5+KazE3Y9yYtwskKxlnkFNp82Kha6dUGDSwG2lYh0Sria2ByOhgr6gmyXtC0PKqlIlTAPcBvz0MEnKTZkxfSqdiHo/meTlMRd9885vr4P52Fd9Ryxe3yVAKZSP9ZzPmRvCvgF1oGCgobZJ5d7FvTwkGt2t4pjy/RlU6FDcXNMHLk4pfJqr3lnEkAh2MbCGlGo1i6Rc6DtgISuJn2AUkrQKhI6F0U7o9e5qPEOjNkhznMCAwEAAaNaMFgwCQYDVR0TBAIwADALBgNVHQ8EBAMCBaAwHQYDVR0OBBYEFJDgSMx4XrLktYOG827wP7VULTnJMB8GA1UdIwQYMBaAFDAS51akWaJlzxC2x4yP3iAYbqtxMA0GCSqGSIb3DQEBCwUAA4ICAQBxRyfCpL7q2VurGfh9XqaC4GsGp6ut3l/rOEyc6DP148A69DRmZ7saqfZW87DcLkmcynPhyBOxdcGwtwKlR9E/+X923JeL6VPQCTY5WyJKib36vQCnoC4ELTnw1yc51v2j+MaZXjrlzBIcCUocWK14WS4iBycUwLuMszz6rJ8xluuYDKDeNcS/AjQf+yTUfDXjktHLgcE27sSEQUQ+7bpbKHkJ5xBvaupJEPX+ndj7V2eD+/sO03jgnsWVa2nky7yDXX/5KCqzL5kAA1n2t2dWSJXxpac8O2bPyRhk6dUSwzNr+IjCjHqUKIouB0nosi85Q5MaIE0pwOOSggnawpnjmL3qDnsS/n7NUcX/mF4eiNQ8cMJmKIgfS6rntKuQY2zSod+4+G0AFbiihVTnKsRf7CiJa/VniZdaGdbclT8KzRnNKJ1TrPO8rVPjg+SpvqTq75xynS08/OXCpoJ3aVeBWZJYJmheHhvJw2RiNW2P2GSIw+m6HIIsthUtvvHqdKpIaThFHAOKmw0LpPO7uGs/z/Q3un7+lqSlW7akUoSCHdiAJ4wWv+qFEgE4mq8bKtHoa9yy6FZBoORbbRTj8WkS+UvCLN5p7kZenmKYnWCzBf02O1ULpMsR5WvKCGCekSwWf3lAF9lYTL12JaFTw9iH1nSkyvcu7AoXlWI50hOhmA==
+
+5.查看有效期
+
+- 当你激活完毕后，Idea右下角会有个Registration小长条提示框，大致的内容为：You copy is Licensed to XXX意思就会告诉你：兄弟，你已经激活成功了，激活码的许可来源是：XXX。
+
+- 查看有效期的步骤为点击：Help->About这里可以看到你的Idea的版本号、许可来源、有效期、以及一些环境
+
+- 服务器激活是没有期限的，即为永久有效
+
+- 激活码激活的有效期到2089年的

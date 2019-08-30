@@ -74,4 +74,21 @@
 
 7. 谷歌浏览器查看js耗时，首先，调出开发者工具，然后选择“performance”，按下左边第二排第二个带箭头的圆形按钮，开始记录，然后就可以在“Sources”里点开js文件查看各个函数的耗时了；<br><br> 
 
-8. 
+8. `$('.xxx div')`选择的是class='xxx'的元素内部的所有div，并不只是子div，子div应该是`$('.xxx>div')`;<br><br> 
+
+9. JavaScript中，父元素包含子元素：
+   　　当父级设置onmouseover及onmouseout时，鼠标从父级移入子级，则触发父级的onmouseout后又触发onmouseover；从子级移入父级后再次触发父级的oumouseout后又触发onmouseover。而如果onmouseover内又应用了计时器便会存在较大的问题。下面针对此问题给出解决方案。
+
+   ```javascript
+   var parent_div = $('.tbh-service').parent()[0];
+   parent_div.onmouseout = function (ev) {
+       var reg = this.compareDocumentPosition(ev.relatedTarget);
+       if (!(reg == 20 || reg == 0)) {
+           //这里执行onmouseout的逻辑代码，这样就不会被子元素干扰；
+       }
+   };
+   ```
+
+   上面代码中，ev.relatedTarget会记录触发事件的元素是什么，然后与本元素进行比较，标准浏览器下a.compareDocumentPosition(b)有5个值，若为0表示为同一节点，若为2表示a位于b后面，若为4表示a位于b前面，若为10表示a为b的后代，若为20表示a为b的祖级；
+
+10. 

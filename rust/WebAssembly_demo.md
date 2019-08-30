@@ -168,7 +168,7 @@ console.log(wasm.fib(20));
 修改index.js：
 
 ```javascript
-import * as wasm from "./my_wasm_app";
+import * as wasm from "./web_assembly_demo";
 
 function fib(i) {
    if (i === 0)  return 0;
