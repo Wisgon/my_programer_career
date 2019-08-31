@@ -10,22 +10,35 @@
 #### Software Architecture
 - AI 深度学习笔记
 - Environment 开发环境和系统环境相关
+  - [idea永久激活](./environment/idea永久激活.md)
+  - [linux命令行](./environment/linux命令行.md)
+  - [pycharm使用心得](./environment/pycharm使用心得.md)
   - [mac使用心得](./environment/mac使用心得.md)
   - [mac常用快捷键](./environment/mac常用快捷键.md)
   - [typora使用心得](./environment/typora使用心得.md)
   - [vim常用快捷键](./environment/vim常用快捷键.md)
+  - [ubuntu系统](./environment/ubuntu系统.md)
+  - [vscode使用心得](./environment/vscode使用心得.md)
 - Front-end 前端开发心得笔记
   - [css学习笔记](./front-end/css学习笔记.md)
   - [html学习笔记](./front-end/html学习笔记.md)
   - [js学习笔记](./front-end/js学习笔记.md)
 - go go语言开发心得笔记
+  - [标准库学习](./go/标准库学习.md)
 - others 其他杂项
   - [今日总结](./others/今日总结.md)
   - [有用的东西](./others/有用的东西.md)
 - static 图片或者视频等静态文件
 - python python开发心得笔记
+  - [flask进阶](./python/flask进阶.md)
+  - [jupyter_notebook使用技巧](./python/jupyter_notebook使用技巧.md)
+  - [强制转换](./python/强制转换.md)
+  - [进阶](./python/进阶.md)
 - rust rust学习与实践心得笔记  
   - [开发环境](./rust/开发环境.md)
+  - [python调用rust库](./rust/python调用rust库.md)
+  - [WebAssembly_demo](./rust/WebAssembly_demo.md)
+  - [学习笔记](./rust/学习笔记.md)
 
 #### 本人csdn地址：https://me.csdn.net/qq_34877350
 
