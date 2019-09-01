@@ -67,7 +67,7 @@
      
      ```python
      import handle
-     handle.ret_py_dict(...)
+     handle.ret_py_dict(py_dict)
      ```
 
 <br><br> 

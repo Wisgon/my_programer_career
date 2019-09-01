@@ -89,6 +89,8 @@
    };
    ```
 
-   上面代码中，ev.relatedTarget会记录触发事件的元素是什么，然后与本元素进行比较，标准浏览器下a.compareDocumentPosition(b)有5个值，若为0表示为同一节点，若为2表示a位于b后面，若为4表示a位于b前面，若为10表示a为b的后代，若为20表示a为b的祖级；
+   上面代码中，ev.relatedTarget会记录触发事件的元素是什么，然后与本元素进行比较，标准浏览器下a.compareDocumentPosition(b)有5个值，若为0表示为同一节点，若为2表示a位于b后面，若为4表示a位于b前面，若为10表示a为b的后代，若为20表示a为b的祖级；<br><br> 
 
-10. 
+10. 在body节点中添加`<script>alert("hello")</script>`会被执行；<br><br> 
+
+11. 
