@@ -46,4 +46,10 @@
 
 3. `from bson import ObjectId`可生成mongodb的_id值，如：`ObjectId("5d75b9f5734b070384599f7a")`<br><br> 
 
-4. 
+4. postman调试flask接口：由于项目用的是https，所以要关掉SSL certificate verification，方法：点击主界面右上角扳手图案，点击“setting”，禁掉SSL certificate verification即可，用postman做flask-wtf的表单验证，也可以是自己做的普通表单提交，也会触发validate_on_submit()，如果没有，可能有一下两个问题：（1）csrf_token没有，这时，在配置文件里面：WTF_CSRF_ENABLED = False禁掉就好；（2）表单验证错误，可以用print(your_form.errors)调试；<br><br>
+
+5. 当我们设计路由时，如果后面加了‘/’ ，当用户输入的url末尾没有”/“ ，Flask会自动响应一个重定向，转向路由末端带有‘/’的url，当我们设计路由时，如果后面没加‘/’ ，当用户输入的url末尾带有”/“ ，会报错 ；<br><br> 
+
+6. get访问时，参数的问号前面有没有斜线都可以，如：`xxx/yyy?my_var=value` 和`xxx/yyy/?my_var=value`都可以;<br><br> 
+
+7. 

@@ -18,4 +18,8 @@
 
 7. 设置重启快捷键：command+k，command+s调出快捷键设置，然后，搜索reloadWindow，出来的几个选项中，默认是command+r的那个，右键点击，选择“change when expression”，改变出发时间为：editorTextFocus；<br><br> 
 
-8. 
+8. setting中，如果用了eslint来format代码，就不要用vetur.format.defaultFormatter.js和vetur.format.defaultFormatter.html了，这两个都给设置成“none”；<br><br> 
+
+9. vscode中，如果打一个字母，按tab键，却无故给变成html标签，这可能是emmet.triggerExpansionOnTab被设置成true了；<br><br> 
+
+10. 
