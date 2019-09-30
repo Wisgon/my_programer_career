@@ -10,4 +10,6 @@
 
    这样就能正常请求了；<br><br> 
 
-3. 
+3. 使用v-for必须添加唯一的key：`<li v-for="(data, index) in user_help_data" :key="data.help_name">`，这个data.help_name必须是各条数据唯一的;<br><br> 
+
+4. 

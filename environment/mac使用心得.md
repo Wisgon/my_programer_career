@@ -9,4 +9,13 @@
 
 4. 不要每次brew install xxx 都update：`vim ~/.bash_profile`，最后一行加入：`export HOMEBREW_NO_AUTO_UPDATE=true`，就可以了；<br><br> 
 
-5. 
+5. mac下，jupyter notebook无法打开浏览器，则运行以下命令：
+
+   ```shell
+   jupyter notebook --generate-config
+   vim .~/.jupyter/jupyter_notebook_config.py
+   ```
+
+   找到c.NotebookApp.browser=''，将''替换为'Chrome'，保存退出；<br><br> 
+
+6. 
