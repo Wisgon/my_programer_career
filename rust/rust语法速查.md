@@ -1099,7 +1099,7 @@ format!("(Read more from {}...)", self.author_summary()) // 调用author_summary
 
 }
 
-Trait Bounds 应该就是约束，实现约束，泛型实现trait约束
+//Trait Bounds 应该就是约束，实现约束，泛型实现trait约束
 
 pub fn notify<T: Summarizable>(item: T) {
 

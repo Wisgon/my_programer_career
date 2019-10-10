@@ -93,4 +93,6 @@
 
 10. 在body节点中添加`<script>alert("hello")</script>`会被执行；<br><br> 
 
-11. 
+11. console调试时要打印object，可以用`console.log(JSON.stringify(obj,null,2))`输出好看的object打印；<br><br> 
+
+12. 

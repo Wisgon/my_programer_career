@@ -12,4 +12,16 @@
 
 3. 使用v-for必须添加唯一的key：`<li v-for="(data, index) in user_help_data" :key="data.help_name">`，这个data.help_name必须是各条数据唯一的;<br><br> 
 
-4. 
+4. 当某个变量发生变化时，可用watch来监听，但是有某些样式会随着这个变量变化，用watch会太早执行动作，所以加上`this.$nextTick`就行：
+
+   ```javascript
+   challenge: function () {
+         this.$nextTick(function () {
+           console.log("###", this.$refs.challenge.offsetHeight)
+         })
+       }
+   ```
+
+   上例子中，challenge是一个变量，当challenge发生变化，`this.$refs.challenge`对应的元素的高会重新渲染，如果不用`​this.$nextTick`的话，会在高度变化之前就打印出原来的高度，达不到想要的效果；<br><br> 
+
+5. 
