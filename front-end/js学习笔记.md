@@ -95,4 +95,23 @@
 
 11. console调试时要打印object，可以用`console.log(JSON.stringify(obj,null,2))`输出好看的object打印；<br><br> 
 
-12. 
+12. es6 的解构语法:
+
+      ```javascript
+      const obj={x:1,y:2,z:3}
+      const {x,y,z}=obj         // 相当于 const x=obj.x, y=obj.y, z=obj.z
+      console.log(x,y,z)        // 输出 -> 1 2 3
+      
+      function({x,y,z}){
+      }
+      
+      // 相当于
+      
+      function(obj){
+        var  x=obj.x, y=obj.y, z=obj.z
+      }
+      ```
+
+      <br><br>
+
+13.   
