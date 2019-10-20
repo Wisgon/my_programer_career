@@ -11,7 +11,7 @@
    这里的echo "123456" | sudo xxxx 其实就是shell命令输入密码的做法，然后开机后会自动执行这个脚本命令；
 
    如果没有rc.local，则自己写一个，内容如下：
-   
+
    ```shell
    #!/bin/sh -e
    #
@@ -51,9 +51,9 @@ exit 0
 
      其实就是设置运行python命令时，启动python2和python3的优先值，最后三位数是优先值
 
-4.    设置开机挂载硬盘：
+4. 设置开机挂载硬盘：
 
-5.    ```shell
+5. ```shell
    sudo ls -l /dev/disk/by-uuid
    # 来获得待挂载硬盘的uuid，然后打开/etc/fstab文件，然后，添加开机挂载硬盘，如：
    
@@ -90,6 +90,4 @@ exit 0
    - `find / -name '*.txt' | xargs grep 'route'`
      在根文件夹下查找后缀名为txt且含有关键字route的文件，列出文件名和route所在行。
 
-9.    ubuntu下查看文件夹大小：`$du -sh`
-
-10.    
+9. ubuntu下查看文件夹大小：`$du -sh`
