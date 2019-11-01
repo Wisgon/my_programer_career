@@ -147,5 +147,23 @@ net_dvr_login_v30()
 <br><br>
 
 ###登录时发生编号41的错误
-这是由于执行的python文件没有和lib目录下的.so文件在同一个目录下的缘故，将python的执行文件与lib下的所有文件、文件夹放在同一个目录下就好；<br><br>
+这是由于执行的python文件没有和lib目录下的.so文件在同一个目录下的缘故，将python的执行文件与lib下的所有文件、文件夹放在同一个目录下就好；另一个解决方法是：cd到sdk的文件夹，然后命令行运行：`$python3 ../start.py`也可；<br><br>
+
+###关于发生段错误的经验总结：
+回调函数对象(即**ctypes.CFUNCTYPE(callback_func)**创建的对象)一定不要直接传递给call_cpp，如：
+
+```python
+l_listen_handle = call_cpp("NET_DVR_StartListen_V30", None, listen_port, call_func_class(alarm_callback) , None)  # 会一定概率发生段错误
+```
+
+因为Make sure you keep references to [`CFUNCTYPE()`](https://docs.python.org/3.7/library/ctypes.html#ctypes.CFUNCTYPE) objects as long as they are used from C code.[`ctypes`](https://docs.python.org/3.7/library/ctypes.html#module-ctypes) doesn’t, and if you don’t, they may be garbage collected, crashing your program when a callback is made
+
+所以应该：
+
+```python
+call_func = call_func_class(alarm_callback)
+l_listen_handle = call_cpp("NET_DVR_StartListen_V30", None, listen_port, call_func , None)
+```
+
+<br><br>
 
