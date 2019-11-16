@@ -27,10 +27,11 @@
    # By default this script does nothing.
    
    echo “123456”| sudo -S /etc/init.d/php7.0-fpm start
+   exit 0
    
    ```
 
-exit 0
+
    ```
    
 3. 修改默认python版本:
@@ -90,4 +91,28 @@ exit 0
    - `find / -name '*.txt' | xargs grep 'route'`
      在根文件夹下查找后缀名为txt且含有关键字route的文件，列出文件名和route所在行。
 
-9. ubuntu下查看文件夹大小：`$du -sh`
+9. ubuntu下查看文件夹大小：`$du -sh`；<br><br>
+
+10. 换源：先备份原先的，然后`$vim /etc/apt/sources.list`:
+
+    ```shell
+    # 默认注释了源码镜像以提高 apt update 速度，如有需要可自行取消注释
+    deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic main restricted universe multiverse
+    # deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic main restricted universe multiverse
+    deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-updates main restricted universe multiverse
+    # deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-updates main restricted universe multiverse
+    deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-backports main restricted universe multiverse
+    # deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-backports main restricted universe multiverse
+    deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-security main restricted universe multiverse
+    # deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-security main restricted universe multiverse
+    
+    # 预发布软件源，不建议启用
+    # deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-proposed main restricted universe multiverse
+    # deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-proposed main restricted universe multiverse
+    ```
+
+    Debian源请参考：<https://mirror.tuna.tsinghua.edu.cn/help/debian/>
+
+    <br><br>
+
+11. 

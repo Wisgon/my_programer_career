@@ -167,3 +167,131 @@ l_listen_handle = call_cpp("NET_DVR_StartListen_V30", None, listen_port, call_fu
 
 <br><br>
 
+
+
+**(1)将py脚本编译成so动态库**：
+
+```shell
+#pip installl  cython
+$cython  xxx.py  #或直接cython *.py可将文件夹下所有py文件转成xxx.c文件
+$gcc -c  -fPIC -I/home/xxx/anaconda3/envs/env_name/include/python3.7m/  xxx.c
+$gcc -shared xxx.o -o xxx.so
+```
+
+/home/xxx/anaconda3/envs/env_name/include/python3.7m/是python运行环境所在目录，这样，就在当前文件夹下生成了xxx.so了，可以像普通py文件一样导入函数等；
+
+**(2)将c++编译成.so并给python调用：**
+
+```c++
+//c_demo.cpp
+#include<stdio.h>
+
+int write_picture_plate_num(const char *filename) {
+    FILE *fSnapPicPlate=NULL;
+    char b[]= "sgfsdf";
+    fSnapPicPlate=fopen(filename,"wb");
+    fwrite(&b, 1, 8, fSnapPicPlate);
+}
+
+extern "C"
+void write_picture_plate_num_func(char *filename)
+{
+ write_picture_plate_num(filename);
+}
+```
+
+接收一个文件名的char指针，然后保存char b[]这个字符串的内容，注意extern "C"是必须要的，且C要大写！
+
+```
+$ g++ -o c_demo.so -shared -fPIC c_demo.cpp
+```
+
+这会生成 c_demo.so文件，
+
+```python
+#c_demo.py
+import ctypes
+func = ctypes.cdll.LoadLibrary("./c_demo.so")
+func.write_picture_plate_num_func(b"dest.txt")
+```
+
+这样就能调用c_demo.so了，注意传入的字符串要带“b”；
+
+<br><br>
+
+###使用c++中的enum：
+
+```c++
+//c_demo.cpp
+typedef enum {
+    ZERO,
+    ONE,
+    TWO
+} MyEnum;
+
+extern "C"
+int getAnEnumValue(MyEnum anEnum) {
+    return (int)anEnum;
+}
+
+extern "C"
+    int sayhello(){
+     using namespace std;
+    cout << "HelloWorld\n";
+    //cout << endl;
+    return 0;
+}
+```
+
+```
+$ g++ -o c_demo.so -shared -fPIC c_demo.cpp  # 生成c_demo.so
+```
+
+```python
+# c_demo.py
+import ctypes as c
+from enum import IntEnum
+
+
+# Define the types we need.
+class CtypesEnum(IntEnum):
+    """A ctypes-compatible IntEnum superclass."""
+    @classmethod
+    def from_param(cls, obj):
+        return int(obj)
+
+
+class MyEnum(CtypesEnum):
+    ZERO = 0
+    ONE = 1
+    TWO = 2
+
+
+# Load the DLL and configure the function call.
+my_dll = c.cdll.LoadLibrary('./c_demo.so')
+get_an_enum_value = my_dll.getAnEnumValue
+get_an_enum_value.argtypes = [MyEnum]
+get_an_enum_value.restype = c.c_int
+
+# Demonstrate that it works.
+print(get_an_enum_value(MyEnum.TWO))  # 打印出2，成功
+my_dll.sayhello()  # 打印出“HelloWorld"
+```
+
+<br><br>
+
+###c++ 类型转换
+
+其中，string转const char*，用`constc= str.c_str(); `即可，但：
+
+```c++
+string a = "fdsf";
+string b = "fsdfs";
+const char* constc = nullptr;
+//如果直接 constc = (a+b).c_str(); 会变成乱码！应该：
+string temp = a+b;
+constc = temp.c_str();
+```
+
+<br><br>
+

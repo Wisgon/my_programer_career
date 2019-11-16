@@ -36,4 +36,11 @@ sudo modprobe -r ideapad_laptop
 
 修改完成之后按F10键开机，进入系统，打开终端，输入：  `sudo -s`  回车，输入密码，进入root模式，输入以下命令安装NVIDIA显卡驱动：  `apt-get install -y nvidia-driver`  如果有提示让你卸载原有驱动，按回车确定即可，
 
-安装完成后，重启电脑，或者说是先断电再开机，重复刚才在引导界面添加"acpi=off"的步骤，然后开机。 开机后打开Deepin的显卡切换软件，切换显卡为NVIDIA闭源驱动，这个时候应该可以切换成功了，如果提示失败，则可以打开Deepin的显卡切换软件，切换为大黄蜂方案，切换完成重启一下电脑就OK了，重启后出现茶壶图案，点击“应用”即可，不用再添加"acpi=off"。 现在应该可以正常关机和重启了，其它显卡我没有试过，但是安装驱动的命令在Deepin维基里面有，可以自己去看看。
+安装完成后，重启电脑，或者说是先断电再开机，重复刚才在引导界面添加"acpi=off"的步骤，然后开机。 开机后打开Deepin的显卡切换软件，切换显卡为NVIDIA闭源驱动，这个时候应该可以切换成功了，如果提示失败，则可以打开Deepin的显卡切换软件，切换为大黄蜂方案，切换完成重启一下电脑就OK了，重启后出现茶壶图案，点击“应用”即可，不用再添加"acpi=off"。 现在应该可以正常关机和重启了，其它显卡我没有试过，但是安装驱动的命令在Deepin维基里面有，可以自己去看看。<br><br>
+
+
+
+###安装mysql之后，出现ERROR 1698 (28000): Access denied for user 'root'@'localhost'问题，首先，`sudo cat /etc/mysql/debian.cnf`查看密码，如果为空，则`sudo mysql -u root`直接登录mysql，然后，`update mysql.user set plugin="mysql_native_password" where User=root;`，退出重启mysql即可；<br><br>
+
+
+
