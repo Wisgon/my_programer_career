@@ -116,4 +116,13 @@
 
     <br><br>
 
-11. 
+11. 联想拯救者手提电脑重装ubuntu后wifi没用，可用以下步骤：
+
+       ```
+       sudo gedit /etc/modprobe.d/blacklist.conf
+       最后加入一行：
+       blacklist ideapad_laptop
+       ```
+
+       <br><br>
+
