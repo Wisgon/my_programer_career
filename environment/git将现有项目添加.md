@@ -15,6 +15,7 @@
   ```shell
   cd xxx/xproject
   git init
+  vim .gitignore
   git add *
   git commit -m "init"
   git remote add origin root@xxx.xxx.xxx.xxx:/git/xproject

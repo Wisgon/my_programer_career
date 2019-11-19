@@ -27,10 +27,11 @@
    # By default this script does nothing.
    
    echo “123456”| sudo -S /etc/init.d/php7.0-fpm start
+   exit 0
    
    ```
 
-exit 0
+
    ```
    
 3. 修改默认python版本:
@@ -92,15 +93,27 @@ exit 0
 
 9. ubuntu下查看文件夹大小：`$du -sh`；<br><br>
 
-10. 联想拯救者手提电脑重装ubuntu后wifi没用，可用以下步骤：
 
-   ```
-   sudo gedit /etc/modprobe.d/blacklist.conf
-   最后加入一行：
-   blacklist ideapad_laptop
-   ```
+10. 换源：先备份原先的，然后`$vim /etc/apt/sources.list`:
 
-   <br><br>
+    ```shell
+    # 默认注释了源码镜像以提高 apt update 速度，如有需要可自行取消注释
+    deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic main restricted universe multiverse
+    # deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic main restricted universe multiverse
+    deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-updates main restricted universe multiverse
+    # deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-updates main restricted universe multiverse
+    deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-backports main restricted universe multiverse
+    # deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-backports main restricted universe multiverse
+    deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-security main restricted universe multiverse
+    # deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-security main restricted universe multiverse
+    
+    # 预发布软件源，不建议启用
+    # deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-proposed main restricted universe multiverse
+    # deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-proposed main restricted universe multiverse
+    ```
+
+    Debian源请参考：<https://mirror.tuna.tsinghua.edu.cn/help/debian/>
+
+    <br><br>
 
 11. 
-

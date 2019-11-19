@@ -52,4 +52,24 @@
 
 6. get访问时，参数的问号前面有没有斜线都可以，如：`xxx/yyy?my_var=value` 和`xxx/yyy/?my_var=value`都可以;<br><br> 
 
-7. 
+7. 记录日志：
+
+   ```python
+   # __init__.py
+   from flask import app
+   logger = app.logger
+   handler = logging.FileHandler(ROOT + "/exception.log", encoding='UTF-8')
+   logging_format = logging.Formatter(
+           '%(asctime)s - %(levelname)s - %(filename)s - %(funcName)s - %(lineno)s - %(message)s')
+   handler.setFormatter(logging_format)
+   logger.addHandler(handler)
+   
+   try:
+   	some_error_code()
+   except Exception as e:
+       logger.error(str(e), exc_info=True)  # 加exc_info=True可以打印堆栈信息
+   ```
+
+   <br><br>
+
+8. 
