@@ -90,4 +90,17 @@ exit 0
    - `find / -name '*.txt' | xargs grep 'route'`
      在根文件夹下查找后缀名为txt且含有关键字route的文件，列出文件名和route所在行。
 
-9. ubuntu下查看文件夹大小：`$du -sh`
+9. ubuntu下查看文件夹大小：`$du -sh`；<br><br>
+
+10. 联想拯救者手提电脑重装ubuntu后wifi没用，可用以下步骤：
+
+   ```
+   sudo gedit /etc/modprobe.d/blacklist.conf
+   最后加入一行：
+   blacklist ideapad_laptop
+   ```
+
+   <br><br>
+
+11. 
+
