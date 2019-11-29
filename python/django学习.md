@@ -8,6 +8,7 @@
    ```
    即可；<br><br>
 
-2. 要在80端口run server，需要sudo权限：`sudo ~/anaconda3/envs/zhps/bin/python3 manage.py runserver  0.0.0.0:80`；<br><br>
+2. 要在80端口run server，需要sudo权限：`sudo ~/anaconda3/envs/zhps/bin/python3 manage.py runserver --noreload  0.0.0.0:80`；<br><br>
 
 3. 
+

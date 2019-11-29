@@ -52,7 +52,7 @@
    解壓：tar zxvf FileName.tar.tgz
    
    .zip
-   壓縮：zip FileName.zip DirName
+   壓縮：zip -q -r FileName.zip DirName  // -q 不显示打包信息 -r 递归处理
    解壓：unzip FileName.zip
    
    .rar
