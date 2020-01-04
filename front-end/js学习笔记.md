@@ -114,4 +114,19 @@
 
       <br><br>
 
-13.   
+13. 禁止右键菜单与F12：
+
+      ```javascript
+      <script>
+              document.oncontextmenu = function () { return false; }; // 禁止右键
+              document.onkeydown = function () {
+      		            if (window.event && window.event.keyCode == 123) {
+      		                event.keyCode = 0;
+      		                event.returnValue = false;
+      		                return false;
+      		            }
+      		        };//禁止F12
+          </script>
+      ```
+
+      <br><br>
