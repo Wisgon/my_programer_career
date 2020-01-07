@@ -45,8 +45,16 @@
    func (f *file) AddAssets(relativePath string, data []byte) {assets[relativePath]  = data}
    ```
 
+    github.com\zserge\lorca\chrome.go  
+
+   ```
+273行：log.Println()注释掉
+   ```
    
-
+   
+   
    <br><br>
+   
+4. 打开chrome，可以设置chrome在后台继续运行，这样打开快一点；<br><br>
 
-4. 
+5. 
