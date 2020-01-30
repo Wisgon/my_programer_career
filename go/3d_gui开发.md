@@ -25,7 +25,12 @@
 
    <br><br>
 
-3. Lorca库我修改的文件是：
+3. go源码我重写的文件是：
+
+   （1）net/http/fs.go中，所有小写开头的serveFile改成了MyServeFile，然后net/http/export_test.go中的serveFile也改成了MyServeFile；
+   <br><br>
+
+4. Lorca库我修改的文件是：
    github.com\zserge\lorca\ui.go:74行：
 
    ```go
@@ -48,13 +53,16 @@
     github.com\zserge\lorca\chrome.go  
 
    ```
-273行：log.Println()注释掉
+   273行：log.Println()注释掉
    ```
-   
-   
-   
-   <br><br>
-   
-4. 打开chrome，可以设置chrome在后台继续运行，这样打开快一点；<br><br>
 
-5. 
+   
+
+   <br><br>
+
+5. 打开chrome，可以设置chrome在后台继续运行，这样打开快一点；<br><br>
+
+6. No 'Access-Control-Allow-Origin' header is present on the requested resource'， 跨域访问的解决方法:
+   有可能是在socket服务器端，开的是0.0.0.0，而输入url访问的是localhost，然后客户端的js的socket连接的又是127.0.0.1，所以会造成跨域；<br><br>
+
+7. 

@@ -72,4 +72,16 @@
 
    <br><br>
 
-8. 
+8. 让flask不打印一般的输出，在app定义的地方，加上：
+
+   ```
+   import logging
+   log = logging.getLogger('werkzeug')
+   log.setLevel(logging.ERROR)
+   ```
+
+   <br><br>
+   
+9. 如果还会遇上命令行卡死，试试在cmd窗口上方，右键弹出菜单，点击“默认值”，将“快速编辑模式”去掉；<br><br>
+
+10. 

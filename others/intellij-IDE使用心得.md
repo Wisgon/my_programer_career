@@ -42,7 +42,7 @@
 
 <br><br>
 
-
-
 9. 打开keymap，搜索“Parameter Info”可以设置是否在输入函数的时候显示参数信息；<br><br>
 10. pycharm中，一个空格的距离是一个字符还是半个字符，由字体决定，有的字体是半个，有的是一个；<br><br>
+11. 可以在setting->Editor->Inspections 那里搜索warning的名字并且取消掉这个讨厌的warning；<br><br>
+12. 

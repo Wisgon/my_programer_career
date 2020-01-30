@@ -130,3 +130,51 @@
       ```
 
       <br><br>
+      
+14. js实现sleep功能：
+
+      ```
+      function sleep(ms) {
+      	return new Promise(resolve => setTimeout(resolve, ms));
+      }
+      
+      async function sleep_demo() {
+          console.log('Taking a break...');
+          await sleep(2000);
+          console.log('Two seconds later');
+      }
+      
+      sleep_demo();
+      ```
+
+      <br><br>
+      
+15. 用js将字符串转json可以使用JSON.parse()，但是要注意，key必须是在双引号内，而不能是单引号:
+
+      ```javascript
+      a = "{'aa':'bb'}"
+      c = JSON.parse(a)  // 报错
+      
+      a = '{"aa": "bb"}'
+      c = JSON.parse(a)  // 正确，值为json的{aa: 'bb'}
+      ```
+
+      <br><br>
+
+16. 要在满足某个条件后执行某段程序，可以用下面这个方法：
+
+      ```javascript
+      var judage = function(){
+          if(some_bool == true){
+              //做你想做的的事
+          }
+          else{
+              //500毫秒轮询一次
+              setTimeout(judage, 500)
+          }
+      }
+      ```
+
+      <br><br>
+
+17. 

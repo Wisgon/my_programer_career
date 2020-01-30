@@ -66,4 +66,18 @@
 
 12. 使用“setting sync”扩展插件来上传和下载配置文件；<br><br>
 
-13. 
+13. 更改vscode中，变量选中后，后续相同变量的背景颜色，vscode其实自带了更改项。
+
+   在setting.json中添加如下字段即可，颜色可以自定义修改，选择自己喜欢的颜色即可。
+
+   ```
+       "workbench.colorCustomizations": {
+           "editor.selectionBackground": "#d1d1c6",
+           "editor.selectionHighlightBackground": "#c5293e"
+       
+       }
+   ```
+
+   <br><br>
+
+14. 
