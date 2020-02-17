@@ -1,7 +1,9 @@
-1. 禁用鼠标中键：
+1. 
+   
+2. 禁用鼠标中键：
    命令行直接输入echo "pointer = 1 25 3 4 5 6 7 2" > ~/.Xmodmap，然后重新登录；<br><br> 
 
-2. 设置开机启动项：
+3. 设置开机启动项：
    直接把命令写入 /etc/rc.local这个文件里，记住要写在exit 0 之前，这个脚本会在开机时执行脚本里的内容，如:
 
    ```shell
@@ -123,7 +125,7 @@
        最后加入一行：
        blacklist ideapad_laptop
        ```
-
+    
        <br><br>
 
 12. 当要将自己的库添加到编译器能搜索到的路径的时候，比如`/home/jhd/Documents/jhd_projects/zhps_jcpt/listener/linux64/lib`，此时，可以` sudo vim /etc/ld.so.conf`，在ld.so.conf最后加上一行：`/home/jhd/Documents/jhd_projects/zhps_jcpt/listener/linux64/lib`，然后保存退出，执行：`sudo ldconfig`即可；<br><br>

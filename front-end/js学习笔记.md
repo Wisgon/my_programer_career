@@ -177,4 +177,39 @@
 
       <br><br>
 
-17. 
+17. ```javascript
+      function random_sort(arr) {
+          // 随机打乱数组
+          //用Math.random()函数生成0~1之间的随机数与0.5比较，返回-1或1
+          arr.sort((a, b) => {
+              return Math.random() > 0.5 ? -1 : 1
+          })
+      }
+      ```
+
+      <br><br>
+
+18. 数组深拷贝：
+
+      ```javascript
+      // 任何直接赋值都是浅拷贝
+      // 深拷贝用arr.slice(start, end)
+      var arr1 = [0,1,2,3]
+      var arr2 = arr1.slice(0) // 全部拷贝过来
+      arr2[1] = 9
+      console.log(arr1) // [0,1,2,3]
+      ```
+
+      <br><br>
+
+19. document对象转jquery对象：
+
+      ```javascript
+      let div_dom = document.getElementByID("aaa")
+      let div_jq = $(div_dom)
+      // div_jq就是jquery对象了
+      ```
+
+      <br><br>
+
+20. 

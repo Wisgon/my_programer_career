@@ -65,4 +65,49 @@
 6. No 'Access-Control-Allow-Origin' header is present on the requested resource'， 跨域访问的解决方法:
    有可能是在socket服务器端，开的是0.0.0.0，而输入url访问的是localhost，然后客户端的js的socket连接的又是127.0.0.1，所以会造成跨域；<br><br>
 
-7. 
+7. go服务器要解决js不可以import的问题，首先，js在引入时要这样：`<script src="js/zhilong/test_import.js" type="module"></script>`，加个type="module"，然后，如果go的fileserver不改的话，就会产生mime的type不是javascript的报错，这时候就要修改go的fileserver的代码了，自己做过一个fileserver：
+
+   ```go
+   package mapUtils
+   
+   import (
+   	"net/http"
+   	"path"
+   	"strings"
+   )
+   
+   var requestFileCounter = 0
+   
+   type myFileHandler struct {
+   	root http.FileSystem
+   }
+   
+   func MyFileServer(root http.FileSystem) http.Handler {
+   	return &myFileHandler{root}
+   }
+   
+   func (f *myFileHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
+   	upath := r.URL.Path
+   	if !strings.HasPrefix(upath, "/") {
+   		upath = "/" + upath
+   		r.URL.Path = upath
+   	}
+   	requestFileCounter += 1
+   	// fmt.Println(requestFileCounter)
+   	// todo:在生产环境记得加上去
+   	//if requestFileCounter > 20 {
+   	//	log.Println("illegal~~~ " + upath)
+   	//	os.Exit(23333)
+   	//}
+   	if strings.HasSuffix(upath, ".js") {
+           // 这里加上设置content-type，前端js就可以用import了
+   		w.Header().Set("Content-Type", "application/javascript")
+   	}
+   
+   	http.MyServeFile(w, r, f.root, path.Clean(upath), true)
+   }
+   ```
+
+   <br><br>
+
+8. 
