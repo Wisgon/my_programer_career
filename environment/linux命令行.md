@@ -75,5 +75,7 @@
 
    <br><br>
 
-6. 
+6. 查看进程命令：` ps -aux | grep mongo`，列出的结果的顺序是：` USER PID %CPU %MEM VSZ RSS TTY STAT START TIME COMMAND `；<br><br>
+
+7. 
 

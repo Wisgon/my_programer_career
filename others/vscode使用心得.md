@@ -98,7 +98,7 @@
 
 17. 在html文件中注释javascript代码时，出现不正确的注释，往往是装了jinja2或者django扩展导致，直接删了就好；<br><br>
 
-18. vscode-go中，添加自定义user snippets的话，添加go.json是没用的，因为go插件加载的go.json是"C:\Users\zhilong\.vscode\extensions\ms-vscode.go-0.13.0\snippets\go.json"，而不是user下的go.json，这时，就要在user snippets下添加go.json.code-snippets，这是一个全局的snippets，可以在里面自定义go的snippets；<br><br>
+18. vscode-go中，添加自定义user snippets的话，添加go.json是没用的，因为go插件加载的go.json是`C:\Users\zhilong\.vscode\extensions\ms-vscode.go-0.13.0\snippets\go.json`，而不是user下的go.json，这时，就要在user snippets下添加go.json.code-snippets，这是一个全局的snippets，可以在里面自定义go的snippets；<br><br>
 
 19. 在snippet中，处在一个$1光标处，如果不想跳到下一个光标，又想换行，则用ctrl+enter；<br><br>
 

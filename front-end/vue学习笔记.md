@@ -83,4 +83,240 @@
 
    ​	<br><br>
 
-9. 
+9. vue项目中，可以用`npm run build`来生成项目所有html，js，css文件；<br><br>
+
+10. App.vue中，
+
+   ```
+   <template>
+       <div id="app">
+           <Header />
+           <router-view />
+       </div>
+   </template>
+   ```
+
+   这里的`<router-view />`是指路由访问的是哪个页面，那么这个就是那个页面的view，如：
+   router.js定义如下
+
+   ```
+   routes: [
+           {
+               path: "/",
+               name: "home",
+               component: Home
+           },
+           {
+               path: "/about",
+               name: "about",
+               // route level code-splitting
+               // this generates a separate chunk (about.[hash].js) for this route
+               // which is lazy-loaded when the route is visited.
+               component: () =>
+                   import(/* webpackChunkName: "about" */ "./views/About.vue")
+           }
+       ]
+   ```
+
+   那么当访问localhost:xxx/时，`<router-view />`就是Home..Vue组件下的template，而访问localhost:xxx/about时，就是About.Vue组件下的template；<br><br>
+
+11. Vue3.0报错error: Unexpected console statement (no-console) 解决办法：
+    修改package.json中的eslintConfig:{} 中的 “rules”:{}，增加一行代码: "no-console":"off" :
+
+   ```json
+   "eslintConfig": {
+       "root": true,
+       "env": {
+         "node": true
+       },
+       "extends": [
+         "plugin:vue/essential",
+         "eslint:recommended"
+       ],
+       "rules": {
+          "no-console":"off"
+       },
+       "parserOptions": {
+         "parser": "babel-eslint"
+       }
+    },
+   ```
+
+   <br><br>
+
+12. vue的axios解决跨域问题：
+      (1)  vue-cli产生的项目，有config/index.js的：
+
+   - 根目录main.js下，增加：
+
+     ```js
+     import  Axios from  'axios'
+     
+     Vue.prototype.$axios=Axios
+     Vue.prototype.HOST="/douban_api"
+     ```
+
+   - config文件夹的index.js下，修改"dev"这个字段的proxyTable：
+
+     ```js
+     // config/index.js是vue-cli生成的配置文件
+      proxyTable: {
+           '/douban_api': {
+             target: 'http://api.douban.com',  //目标接口域名
+             pathRewrite: {
+               '^/douban_api': ''   //重写接口
+             },
+             changeOrigin: true,  //在本地会创建一个虚拟服务端，然后发送请求的数据，并同时接收请求的数据，这样服务端和服务端进行数据的交互就不会有跨域问题
+           },
+     
+         },
+     ```
+
+   - 然后就是普通js或vue文件中的axios的用法：
+
+     ```vue
+     <script>
+     export default {
+     
+       name: 'HelloWorld',
+       data () {
+         return {
+           msg: 'Welcome to Your Vue.js App'
+         }
+       },
+       mounted() {
+         const  url=this.HOST+"/v2/movie/top250"; //会自动变成http://api.douban.com/v2/movie/top250
+         this.$axios.get(url)
+           .then(function (response) {
+             console.log(response);
+           })
+           .catch(function (error) {
+             console.log(error);
+           });
+       }
+     
+     }
+     </script>
+     ```
+
+     
+     
+     (2)  普通的vue项目，根目录下有vue.config.js的：
+     
+     ```vue
+     devServer {
+     	...
+     	proxy: { // 设置代理
+           '/graphql': {
+             target: 'http://192.168.9.5:8033',
+             changeOrigin: true,
+             pathRewrite: {
+               '^/graphql': '/graphql'
+             }
+           }
+         }
+     }
+     ```
+     
+     如果出现：“vue Proxy error: Could not proxy request xxx” 的报错的时候，可能是target的那个url的后台服务关闭了，或者不存在！
+     
+     <br>
+     
+     <br>
+
+13. vue 定义全局变量:
+   Global.vue文件：
+
+   ```js
+   <script>
+       const token='12345678';
+   
+       export default {
+           methods: {
+               getToken(){
+                   ....
+               }
+           }
+       }
+   </script>
+   ```
+
+   在需要的地方引用进全局变量模块文件，然后通过文件里面的变量名字获取全局变量参数值。
+
+   ```js
+   <script>
+   import global from '../../components/Global'//引用模块进来
+   export default {
+       data () {
+           return {
+               token:global.token
+           }
+       },
+       created: function() {
+           global.getToken();
+       }
+   }
+   </script>
+   ```
+
+   <br><br>
+
+14. 在vue项目中定义全局变量和函数：
+   ./utils/graphqlCURD.vue:
+
+   ```vue
+   <script>
+   var graphqlCURD = {}
+   
+   graphqlCURD.generateMutation = function (
+       funcName,
+       inputs,
+       returnValue = "numUids"
+   ) {
+       return `
+   mutation{
+     ${funcName}(input:${inputs}) {
+       ${returnValue}
+     }
+   }
+   `
+   }
+   
+   export default graphqlCURD
+   </script>
+   ```
+
+   在子组件中，这样使用：
+   components/aaa.vue:
+
+   ```vue
+   import graphqlCURD from "./utils/graphqlCURD"
+   graphqlCURD.generateMutation(xxx,xxx,xxx)
+   ```
+
+   <br><br>
+
+15. 在使用vue进行开发的时候我们会发现地址栏上的ip后面会跟着一个#号，如果想去掉这个井号，我们可以在路由上加上 mode: 'history', 即可去掉，是不是很简单呢
+
+    
+
+   ```javascript
+   export default new Router({
+     mode: 'history',
+     routes: [
+       {
+         path: '/', 
+         name: 'Home',
+         component: Home
+       }   
+     ]
+   })
+   ```
+
+   ------
+
+   vue-router默认是hash模式，在hash模式下，是会有#号在URL上的，很丑有没有？
+
+   切换到HTML5的history模式，只需要在mode选项中配置即可。在history模式下，URL就像正常的URL一样，但是该模式下需要后台正确的配置才可以。因为在路由中传参时，后台没有配置好的话，就会返回404。<br><br>
+
+16. 

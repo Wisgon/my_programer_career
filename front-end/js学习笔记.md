@@ -212,4 +212,66 @@
 
       <br><br>
 
-20. 
+20. js中export和import的规则：
+      exp.js:
+
+      ```js
+      const bb = 5
+      export default bb
+      ```
+
+      imp.js:
+
+      ```js
+      import aa from 'src/exp'
+      console.log(aa) // 5
+      
+      // 如果是import {bb} from 'src/exp'，bb会是undefined，export default的不能出现在{}里面
+      ```
+
+      也就是说，export default的话，import可以自己命名变量名字，不一样都无所谓；
+
+      exp.js:
+
+      ```js
+      export const bb = 5
+      ```
+
+      imp.js:
+
+      ```js
+      import {bb} from 'src/exp'
+      console.log(bb)  // 5
+      
+      // 如果是import aa from 'src/exp' 那么aa回事undefined
+      ```
+
+      总结：export default的，import不能出现{}，可以自己重命名，export const，export function ={}等非default的，import 必须有{}，不能自己重命名；<br><br>
+
+21. 多行字符串中带变量：
+
+      ```js
+      let var1 = 'i am var1' 
+      let multi_line = `  // 这是反引号
+      line1 fsdf
+      line2 ____${var1}
+      `
+      console.log(multi_line) 
+      // 会输出：line1 fsdf
+      		line2 ____i am var1
+      ```
+
+      <br><br>
+
+22. 要想让数组原样输出，要用JSON.stringify:
+
+      ```js
+      aaa = ["ff", "nn"]
+      aaa.toString() // 输出"ff, nn"
+      String(aaa)  // 输出"ff, nn"
+      JSON.stringify(aaa)  // 原样输出"["ff", "nn"]"
+      ```
+
+      <br><br>
+
+23. 
