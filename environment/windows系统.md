@@ -4,6 +4,13 @@
    set HTTP_PROXY=http://user:password@proxy.domain.com:port  // 一次性有效
    ```
 
+   powershell使用代理：
+
+   ```
+   $env:HTTPS_PROXY="http://192.168.8.211:9001"
+   $env:HTTP_PROXY="http://192.168.8.211:9001"
+   ```
+
    <br><br>
 
 2. `netstat -aon|findstr "49157" ` 查询端口占用；<br><br>
@@ -48,5 +55,22 @@
 
 5. 出现`Unable to round-trip http request to upstream: dial tcp [::1]:8033: connectex: No connection could be made because the target machine actively refused it.`这类的错误，可能是开了代理，然后localhost被代理了，可以在代理设置上勾选"请勿将代理服务器用于本地地址"<br><br>
 
-6. 
+6. 添加ftp服务：
+
+   - 打开“计算机管理”界面
+   - 点击“服务和应用程序”
+   - 点击“Internet Information Services(IIS)管理器”
+   - 点击右边的“DESKTOP-XXX”
+   - 下拉中右键点击“网站”，选择“添加FTP站点”
+   - 按照提示添加FTP站点即可，在局域网其他计算机的文件资源栏中，填写"ftp://192.168.9.40"，即可访问到共享文件夹<br><br>
+
+7. 移动硬盘有驱动但是没显示的解决办法：
+
+   -  在计算器管理中打开“设备管理器”，找到“通用串行总线控制器” 
+   -  右键下方的USB大容量储存设备，对其进行卸载操作 
+   -  再右键点击“通用串行总线控制器”，点击“扫描检测硬件改动”，稍等片刻就可以看见移动硬盘刷新出来了
+
+   <br><br>
+
+8. 
 

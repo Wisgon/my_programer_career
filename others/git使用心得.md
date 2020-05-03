@@ -9,5 +9,7 @@
 
    gitlab是别名 ;<br><br>
 
-2. 
+2. git要放弃对某个文件的修改，只要执行命令： `git checkout filename.txt`就好<br><br>
+
+3. 
 

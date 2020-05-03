@@ -26,3 +26,12 @@
 
 - 这时，就可以`git clone root@xxx.xxx.xxx.xxx:/git/xproject`了；
 
+
+
+# 远程库已删，用本地库来恢复远程库
+
+- 首先，在git服务器中，执行：`git init --bare xxx.git`;
+- 然后，回到已克隆下来的本地的xxx目录下，看看.git文件夹中的config文件中的url对不对得上新的xxx.git的url，如果对不上，则修改config中的url；
+- 随后，在本地的xxx根目录下，打开git命令行，执行：` git push origin master --force `，具体是master还是其他分支，都可以改成对应的分支名，这样强制push上去之后，刚生成的xxx.git就是跟原来被删的一样了；
+
+
