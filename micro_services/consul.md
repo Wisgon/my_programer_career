@@ -1,4 +1,4 @@
-### consul部署笔记
+### consul部署
 
 - docker命令（在同一台机部署多个consul的时候才要用）：
 
@@ -12,14 +12,17 @@
   ```shell
   //容器里面跑consul，172.22.0.2是这个容器的docker分配的ip,以下是同一台机器的部署，如果是局域网中多台机器，则需要换成局域网内对应的ip
   //node1:
-  consul agent -server -bootstrap-expect 2 -data-dir /tmp/consul -node=n1 -bind=172.22.0.2 -ui -config-dir /etc/consul.d -rejoin -join 172.22.0.2 -client 0.0.0.0
+  consul agent -server -bootstrap-expect 2  -enable-local-script-checks -data-dir /tmp/consul -node=n1 -bind=172.22.0.2 -ui -config-dir /etc/consul.d -rejoin -retry-join 172.22.0.2 -client 0.0.0.0
+  // -join 172.22.0.2是说加入主服务器的这个集群中
   
   //node2:
-  consul agent -server -bootstrap-expect 2 -data-dir /tmp/consul -node=n1 -bind=172.22.0.2 -ui -config-dir /etc/consul.d -rejoin -join 172.22.0.2 -client 0.0.0.0
+  consul agent -server -bootstrap-expect 2  -enable-local-script-checks -data-dir /tmp/consul -node=n1 -bind=172.22.0.3 -ui -config-dir /etc/consul.d -rejoin -retry-join 172.22.0.2 -client 0.0.0.0
   
   //client:
-  consul agent -data-dir /tmp/consul -node=n3 -bind=172.22.0.4 -config-dir /etc/consul.d -rejoin -join 172.22.0.2
+  consul agent -data-dir /tmp/consul -node=n3 -enable-local-script-checks -bind=172.22.0.4 -config-dir /etc/consul.d -rejoin -retry-join 172.22.0.2
   ```
+  
+- consul api:` go get -v github.com/hashicorp/consul`；<br><br>
 
 
 
@@ -35,3 +38,32 @@ node2:
 
 client:
 ![client](../static/consul_client.png)
+
+
+
+
+
+### 服务注册
+
+- 在consul.d文件夹中新建json配置文件：
+
+  ```json
+  {
+  	"service": {
+  		"name": "web1",  #服务名称
+  		"tags": ["master"],  #标记
+  		"address": "127.0.0.1",  #ip
+  		"port": 10000,
+  		"checks": [
+  			{
+  				"http": "http://localhost:10000/health",
+  				"interval": "10s"  # 检查时间间隔
+  			}
+  		]
+  	}
+  }
+  ```
+
+- server最好有奇数个，这样选举比较容易
+
+ 
