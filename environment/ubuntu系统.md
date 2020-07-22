@@ -163,4 +163,37 @@
 
 16. apt-get install 使用代理：`sudo apt-get install xxx -o Acquire::http::proxy="http://127.0.0.1:9001"`;<br><br>
 
-17. 
+17. ubuntu安装gcc-4:
+
+    ```shell
+    sudo add-apt-repository 'deb http://archive.ubuntu.com/ubuntu/ trusty main'
+    sudo add-apt-repository 'deb http://archive.ubuntu.com/ubuntu/ trusty universe'
+    sudo apt install gcc-4.4
+    ```
+
+    <br><br>
+    
+18. vmware启动虚拟机，出现“Could not open /dev/vmmon: No such file or directory“错误，修复命令如下：
+
+    ```shell
+    wget https://raw.githubusercontent.com/rune1979/ubuntu-vmmon-vmware-bash/master/wm_autoupdate_key.sh
+    sudo chmod +x wm_autoupdate_key.sh
+    ./wm_autoupdate_key.sh  // 这一步要输入密码，记住密码
+    ```
+
+    执行完重新启动，蓝屏出现时按选择`Enroll MOK`->`continue`->`Yes`->输入密码->`REBOOT`，重启完搞定；<br><br>
+    
+19. 解決Linux開啟VMWare Workstation時出現「Unable to start services」的問題:
+
+    ```shell
+    #git clone https://github.com/mkubecek/vmware-host-modules.git
+    #cd vmware-host-modules/
+    //假設現在要安裝VMWare Workstation Pro 15.1的Linux Kernel模組，那麼就要使用remotes/origin/workstation-15.1.0分支；假設現在要安裝VMWare Workstation Player 15.1的Linux Kernel模組，那麼就要使用remotes/origin/player-15.1.0分支。
+    #git checkout remotes/origin/workstation-15.1.0
+    #git fetch
+    #make
+    #sudo make install
+    #sudo systemctl restart vmware
+    ```
+
+    搞定；<br><br>
