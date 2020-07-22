@@ -125,7 +125,7 @@
        最后加入一行：
        blacklist ideapad_laptop
        ```
-        
+    
        <br><br>
 
 12. 当要将自己的库添加到编译器能搜索到的路径的时候，比如`/home/jhd/Documents/jhd_projects/zhps_jcpt/listener/linux64/lib`，此时，可以` sudo vim /etc/ld.so.conf`，在ld.so.conf最后加上一行：`/home/jhd/Documents/jhd_projects/zhps_jcpt/listener/linux64/lib`，然后保存退出，执行：`sudo ldconfig`即可；<br><br>
@@ -139,4 +139,28 @@
 
   <br><br>
 
-14. 
+14. ubuntu端口转发：
+
+    ```shell
+    #sudo apt-get install rinetd
+    #sudo vim /etc/rinetd.conf
+    
+    // 在最后添加以下配置
+    0.0.0.0 27018 127.0.0.1 27017   // 将本机27018端口转发到27017
+    
+    #rinetd -c /etc/rinetd.conf 
+    ```
+
+    <br><br>
+
+15. ubuntu点击图标最小化，执行命令：
+
+    ```shell
+     $gsettings set org.gnome.shell.extensions.dash-to-dock click-action 'minimize'
+    ```
+
+    <br><br>
+
+16. apt-get install 使用代理：`sudo apt-get install xxx -o Acquire::http::proxy="http://127.0.0.1:9001"`;<br><br>
+
+17. 
