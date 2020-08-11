@@ -149,6 +149,10 @@
     0.0.0.0 27018 127.0.0.1 27017   // 将本机27018端口转发到27017
     
     #rinetd -c /etc/rinetd.conf 
+    
+    // 可以设置多个：
+    127.0.0.1 9001 127.0.0.1 39615
+    192.168.9.6 9001 127.0.0.1 39615
     ```
 
     <br><br>
@@ -173,27 +177,16 @@
 
     <br><br>
     
-18. vmware启动虚拟机，出现“Could not open /dev/vmmon: No such file or directory“错误，修复命令如下：
+20. fcitx设置快捷短语：编辑文件`~/.config/fcitx/data/QuickPhrase.mb`，格式如下：
 
-    ```shell
-    wget https://raw.githubusercontent.com/rune1979/ubuntu-vmmon-vmware-bash/master/wm_autoupdate_key.sh
-    sudo chmod +x wm_autoupdate_key.sh
-    ./wm_autoupdate_key.sh  // 这一步要输入密码，记住密码
+    ```
+    br <br><br>
+    key -_-
     ```
 
-    执行完重新启动，蓝屏出现时按选择`Enroll MOK`->`continue`->`Yes`->输入密码->`REBOOT`，重启完搞定；<br><br>
-    
-19. 解決Linux開啟VMWare Workstation時出現「Unable to start services」的問題:
+    第一个是触发键，然后空格，然后就是要输入的内容，保存好后，进入fcitx的设置界面->Addon->QuickPhrase，点击Configure，然后在"Alternative Trigger Key For Quickphrase"那一栏设置触发按钮，如设置的是F1，那么在输入状态，按F1键会有个输入框弹出来，此时输入br，就可以快速输入`<br><br>`；<br><br>
 
-    ```shell
-    #git clone https://github.com/mkubecek/vmware-host-modules.git
-    #cd vmware-host-modules/
-    //假設現在要安裝VMWare Workstation Pro 15.1的Linux Kernel模組，那麼就要使用remotes/origin/workstation-15.1.0分支；假設現在要安裝VMWare Workstation Player 15.1的Linux Kernel模組，那麼就要使用remotes/origin/player-15.1.0分支。
-    #git checkout remotes/origin/workstation-15.1.0
-    #git fetch
-    #make
-    #sudo make install
-    #sudo systemctl restart vmware
-    ```
+19. ubuntu安装宝塔，出现无法安装php-7.2的情况，这时，使用`cat /tmp/panelExec.log`查看具体的安装报错信息，如果是`configure: error: webp/decode.h not found`的话，就`sudo apt-get install libwebp-dev`，重新安装，搞定；<br><br>
 
-    搞定；<br><br>
+20. 
+

@@ -22,7 +22,7 @@
 
    - `sudo vim /etc/systemd/resolved.conf`，设置DNS，在"[Resolve]"下一行添加DNS=202.96.134.133即可；<br><br>
 
-2. ubuntu与win10共享文件夹：
+2. ubuntu与win10(主机)共享文件夹：
 
    -  问题现状：/mnt下没有hgfs目录，需要重新安装VMtools工具 ；
 
@@ -50,4 +50,38 @@
    - 开机，设置静态ip，这里要注意的是，要将网段和网关设置成和主机一样，比如主机ip是192.168.9.5，网关是192.168.9.1，那么虚拟机的ip设置成192.168.9.xxx，网关一样就可；
    - 接下来，局域网的其他机器就可以ping通这个vmware虚拟机了；
 
-4. 
+4. ubuntu20.04下vmware启动虚拟机，出现“Could not open /dev/vmmon: No such file or directory“错误，修复命令如下：
+
+   ```shell
+   wget https://raw.githubusercontent.com/rune1979/ubuntu-vmmon-vmware-bash/master/wm_autoupdate_key.sh
+   sudo chmod +x wm_autoupdate_key.sh
+   ./wm_autoupdate_key.sh  // 这一步要输入密码，记住密码
+   ```
+
+   执行完重新启动，蓝屏出现时按选择`Enroll MOK`->`continue`->`Yes`->输入密码->`REBOOT`，重启完搞定；<br><br>
+
+5. 解決Linux開啟VMWare Workstation時出現「Unable to start services」的問題:
+
+   ```shell
+   #git clone https://github.com/mkubecek/vmware-host-modules.git
+   #cd vmware-host-modules/
+   //假設現在要安裝VMWare Workstation Pro 15.1的Linux Kernel模組，那麼就要使用remotes/origin/workstation-15.1.0分支；假設現在要安裝VMWare Workstation Player 15.1的Linux Kernel模組，那麼就要使用remotes/origin/player-15.1.0分支。
+   #git checkout remotes/origin/workstation-15.1.0
+   #git fetch
+   #make
+   #sudo make install
+   #sudo systemctl restart vmware
+   ```
+
+   搞定；<br><br>
+   
+6. ubuntu主机，win10虚拟机中无法安装vmware tools，可能是缺少某个库：
+
+   ```
+   // ubuntu主机中运行：
+   sudo apt install libncursesw5
+   ```
+
+   <br><br>
+
+7. 

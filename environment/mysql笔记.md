@@ -13,5 +13,7 @@
 
 2. ` CREATE DATABASE 'mydb' CHARACTER SET utf8 COLLATE utf8_general_ci; `创建新数据库并设置编码为utf8；<br><br>
 
-3. 
+3. ADO.net的mysql连接模板：`Server=127.0.0.1;Database=study1;uid=root;pwd=root;Charset=utf8`；<br><br>
+
+4. 
 
