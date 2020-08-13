@@ -83,14 +83,14 @@
 14. View->render whitespace可以选择是否将空格变成圆点；<br><br>
 
 15. ```json
-   "emmet.triggerExpansionOnTab": false,  // 这样就不会按tab却变成补全html了
+      "emmet.triggerExpansionOnTab": false,  // 这样就不会按tab却变成补全html了
        "emmet.includeLanguages": {
            "vue-html": "html",
            "vue": "html",
            "wxml": "html",
            //"javascript": "javascriptreact"  // 这样在js中就不会出现emmet的提示了
        },
-   ```
+    ```
 
    <br><br>
 
@@ -102,4 +102,12 @@
 
 19. 在snippet中，处在一个$1光标处，如果不想跳到下一个光标，又想换行，则用ctrl+enter；<br><br>
 
-20. 
+20. vscode死活无法格式化.vue文件的问题，只要在setting.json里面加上：
+
+    ```
+    "[vue]": {
+            "editor.defaultFormatter": "octref.vetur"
+        },
+    ```
+
+    即可解决问题；<br><br>
