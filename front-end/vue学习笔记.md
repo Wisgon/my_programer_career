@@ -225,7 +225,7 @@
      <br>
 
 13. vue 定义全局变量:
-   Global.vue文件：
+      Global.vue文件：
 
    ```js
    <script>
@@ -262,7 +262,7 @@
    <br><br>
 
 14. 在vue项目中定义全局变量和函数：
-   ./utils/graphqlCURD.vue:
+      ./utils/graphqlCURD.vue:
 
    ```vue
    <script>
@@ -313,10 +313,72 @@
    })
    ```
 
-   ------
+------
 
    vue-router默认是hash模式，在hash模式下，是会有#号在URL上的，很丑有没有？
 
    切换到HTML5的history模式，只需要在mode选项中配置即可。在history模式下，URL就像正常的URL一样，但是该模式下需要后台正确的配置才可以。因为在路由中传参时，后台没有配置好的话，就会返回404。<br><br>
 
-16. 
+16. vue 产生 “Uncaught SyntaxError: Unexpected token <” 的错误，极有可能是vue-router中的mode设置成了history，在没有后端支持且是单页面应用的情况下，如果url匹配不到任何静态资源，则返回index.html页面，这时把它当做js来解析，第一行的`<!DOCTYPE HTML>`中的<不应该出现在js文件中，所以报错了；<br><br>
+
+17. vue中，很奇葩的是，打印出控制台的值，如果打印出来后，后续还有变化，那么打印出来的地方显示的值也是变化过后的！<br><br>
+
+18. 可以用key来重新渲染组件：
+
+    ```vue
+    <template>
+       <component-a :key="rerenderkey">
+    </template>
+    <script>
+      export default {
+          data(){
+    		return {
+    			rerenderkey: 0,
+    		}
+          },
+          methods: {
+          	forceRerender() {
+          		this.rerenderkey += 1  // 这个一执行，component-a就会被重新渲染
+          	}
+          }
+      }
+    </script>
+    ```
+
+    <br><br>
+
+19. npm安装出现code EINTEGRITY错误，则按以下步骤修复即可：
+
+    ```
+    sudo npm cache clean –force
+    rm -rf package-lock.json
+    rm -rf node_modules
+    npm install
+    ```
+
+    <br><br>
+
+20. vue在this.xx赋值的时候，会对object类型做一些手脚，比如：
+
+    ```javascript
+    bb = {aaa: 3}
+    console.log(bb)  
+    // 打印出:
+    // aaa: 3
+    // __ob__: Observer {value: {…}, dep: Dep, vmCount: 0}
+    // __proto__: Object
+    
+    // 这时如果进行vue的属性赋值:
+    this.xxx = bb
+    console.log(this.xxx)
+    // 就会变成:
+    // aaa: (...)
+    // __ob__: Observer {value: {…}, dep: Dep, vmCount: 0}
+    // get aaa: ƒ reactiveGetter()
+    // set aaa: ƒ reactiveSetter(newVal)
+    // __proto__: Object
+    
+    // 多了get和set，注意：只对data中声明了的xxx有效，如果是临时的this.xxx，是无效的
+    ```
+
+    所以有时直接设定`this.xxx.aaa = 3`却达不到想要的效果的原因，这时的`this.xxx`的aaa是没有get和set的！<br><br>

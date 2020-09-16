@@ -34,3 +34,56 @@
    ```
 
    <br><br>
+   
+3. 使用`dgraph.type`可获得类型：
+
+   ```
+   {
+     q(func: has(<name>)) {
+         <name>
+       dgraph.type
+     }
+   }
+   ```
+
+   <br><br>
+
+4. upsert block 中，query只能有一个，但是可以有多个子query，mutation则可以有多个：
+
+   ```
+   
+   upsert {
+     query {
+     # 第一个子query
+       q(func: eq(email, "user@company1.io")) {
+         v as uid
+         name
+       }
+       
+       #第二个子query
+       q2(func: eq(email, "ddd@company.co")) {
+          v2 as uid
+       }
+     }
+   	
+   	# 第一个mutation
+     mutation {  
+       set {
+         uid(v) <name> "user" .
+         uid(v) <email> "user@company2.io" .
+       }
+     }
+     
+     # 第二个mutation
+     mutation {
+       set {
+         uid(v2) <name> "ddd" .
+       }
+     }
+   }
+   
+   ```
+
+   <br><br>
+
+5. 
