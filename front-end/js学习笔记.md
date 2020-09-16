@@ -130,7 +130,7 @@
       ```
 
       <br><br>
-      
+    
 14. js实现sleep功能：
 
       ```
@@ -148,7 +148,7 @@
       ```
 
       <br><br>
-      
+    
 15. 用js将字符串转json可以使用JSON.parse()，但是要注意，key必须是在双引号内，而不能是单引号:
 
       ```javascript
@@ -185,7 +185,7 @@
               return Math.random() > 0.5 ? -1 : 1
           })
       }
-      ```
+    ```
 
       <br><br>
 
@@ -274,4 +274,33 @@
 
       <br><br>
 
-23. 
+23. *setInterval*的使用：
+
+      ```javascript
+      var getClassInterval = setInterval(function () {
+                // 获取新添加的元素，之所以要放到interval里面，是因为这个元素是异步创建的
+                var d = document.getElementsByClassName("__pathRoot_sub")[0]
+                if (d != undefined) {
+                  d.style.boxShadow = "0 0 6px 2px #2b9939"
+                  clearInterval(getClassInterval)
+                }
+              }, 200)
+      ```
+
+      这里，clearInterval能获得getClassInterval这个var，是因为整个function是200ms后执行，这时候已经有了getClassInterval了；<br><br>
+
+24. js动态增加新的style类：
+
+      ```javascript
+      var style = document.createElement('style');
+      style.type = 'text/css';
+      style.innerHTML = '.cssClass { color: #F00; }';
+      document.getElementsByTagName('head')[0].appendChild(style);
+      
+      document.getElementById('someElementId').className = 'cssClass';
+      ```
+
+      <br><br>
+
+25. 
+
