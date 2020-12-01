@@ -333,4 +333,8 @@
 
     这样，template和script都不受eslint检查了；<br><br>
 
-17. 
+17. 子组件中，data不能用`data: ()=>{return {xxx:xxx}}`这样的形式，应该用：`data: function() {return {xxx:xxx}}`这样，或者`data() {return {xxx:xxx}}`这样的；<br><br>
+
+18. elementui的el-checkbox在使用v-for循环时，父级的checkbox-group的v-model一定要绑定一个数组类型的变量，如果是字符串类型，则会出现点击一个框马上全选的bug；<br><br>
+
+19. 

@@ -21,5 +21,11 @@
 
    <br><br>
 
-4. 
+4. git中引用其他项目：
+
+   ```
+   git submodule add https://github.com/xxx/yyy
+   ```
+
+   
 

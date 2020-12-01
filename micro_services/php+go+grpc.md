@@ -22,7 +22,10 @@
 5. #### Install Protobuf compiler
 
    ```shell
-   $ cd grpc/third_party/protobuf
+   $ git clone https://github.com/grpc/grpc.git
+   $ cd grpc/
+   $ git submodule update --init
+   $ cd third_party/protobuf
    $ ./autogen.sh && ./configure && make
    $ sudo make install
    ```
