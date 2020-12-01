@@ -200,4 +200,4 @@
     
 20. 查找命令的可执行文件所在路径，用whereis，如：`$whereis php`，得到/usr/bin/php，知道php这个命令的路径在/usr/bin；<br><br>
 
-21. 
+21. 查看端口占用：`netstat -ap | grep 8080`；<br><br>
