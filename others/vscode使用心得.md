@@ -111,3 +111,36 @@
     ```
 
     即可解决问题；<br><br>
+    
+21. vscode中，vue导入路径"@"提示：
+
+    - 安装path autocomplete;
+    
+    - 在项目根目录创建一个 jsconfig.json文件，内容如下：
+    
+    ```
+    {
+          "compilerOptions": {
+                "baseUrl": ".",
+                "paths": {
+                    "@/*": ["src/*"]
+                },
+                "target": "ES6",
+                "module": "commonjs",
+                "allowSyntheticDefaultImports": true
+            },
+            "include": ["src/**/*"],
+            "exclude": ["node_modules"]
+        }
+    ```
+    
+    
+    
+    - 重启vscode；
+    
+    <br><br>
+    
+22. 
+    
+    
+

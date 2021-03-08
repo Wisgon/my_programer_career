@@ -201,3 +201,16 @@
 20. 查找命令的可执行文件所在路径，用whereis，如：`$whereis php`，得到/usr/bin/php，知道php这个命令的路径在/usr/bin；<br><br>
 
 21. 查看端口占用：`netstat -ap | grep 8080`；<br><br>
+
+22. 服务器刚装好的ubuntu18.04，默认是防火墙封住所有端口的，除了阿里云安全组解放端口外，还需要下载firewall来解封端口：
+
+    ```shell
+    $apt-get install firewall
+    $firewall-cmd --permanent --zone=public --add-port=80/tcp  // 这里是开放80端口
+    $firewall-cmd --reload
+    ```
+
+    <br><br>
+
+23. 
+

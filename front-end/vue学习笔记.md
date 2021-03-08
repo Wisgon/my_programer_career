@@ -337,4 +337,40 @@
 
 18. elementui的el-checkbox在使用v-for循环时，父级的checkbox-group的v-model一定要绑定一个数组类型的变量，如果是字符串类型，则会出现点击一个框马上全选的bug；<br><br>
 
-19. 在vue的html中，template可作为模板占位符，可帮助我们包裹元素，但是又不会渲染到html里，相当于小程序的block了；<br><br>
+19. vue要在新标签打开页面，可以：
+
+    ```javascript
+    let routeData = this.$router.resolve({ path: '/reportpreview', query: { id: id } });
+    window.open(routeData.href, '_blank');
+    ```
+
+    <br><br>
+
+20. `this.$router.go(0)`可强制刷新当前页面，重新获取数据；<br><br>
+
+21. vue中，直接更新对象的属性值是无效的，要更新整个对象，如：
+
+    ```vue
+    <template>
+        <div>
+        	<p>{{aaa.bb}}</p>
+        </div>
+    </template>
+    <script>
+    	export default{
+    		data():{
+    			return{
+    				aaa:{bb:3}
+    			}
+    		},
+    		mounted(){
+    			// this.aaa.bb = 4 // 无用，不会更新
+    			this.aaa = {bb:4} // 这样才会更新
+    		}
+    	}
+    </script>
+    ```
+
+    <br><br>
+
+22. 在vue的html中，template可作为模板占位符，可帮助我们包裹元素，但是又不会渲染到html里，相当于小程序的block了；<br><br>
