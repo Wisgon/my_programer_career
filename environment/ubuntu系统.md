@@ -1,9 +1,7 @@
-1. 
-  
-2. 禁用鼠标中键：
+1. 禁用鼠标中键：
    命令行直接输入echo "pointer = 1 25 3 4 5 6 7 2" > ~/.Xmodmap，然后重新登录；<br><br> 
 
-3. 设置开机启动项：
+2. 设置开机启动项：
    直接把命令写入 /etc/rc.local这个文件里，记住要写在exit 0 之前，这个脚本会在开机时执行脚本里的内容，如:
 
    ```shell
@@ -33,55 +31,73 @@
    
    ```
 
-
-   ```
+   <br><br>
    
 3. 修改默认python版本:
 
    - 直接执行下面命令:
 
-   - ```shell
+   	```shell
      echo alias python=python3 >> ~/.bashrc
      source ~/.bashrc
-   ```
+     ```
 
    - 或者：
 
-   - ```shell
+     ```shell
      sudo update-alternatives --install /usr/bin/python python /usr/bin/python2 100
      sudo update-alternatives --install /usr/bin/python python /usr/bin/python3 150
      ```
-
+   ```
+   
      其实就是设置运行python命令时，启动python2和python3的优先值，最后三位数是优先值
+   ```
 
 4. 设置开机挂载硬盘：
 
-5. ```shell
-   sudo ls -l /dev/disk/by-uuid
-   # 来获得待挂载硬盘的uuid，然后打开/etc/fstab文件，然后，添加开机挂载硬盘，如：
-   
-   # /dev/sdb1
-   
-   UUID=2b0b3a6c-fe07-4e18-b5a2-0d11b3d85ede	/         	ext4      	rw,relatime,data=ordered	0 1
-   
-   # /dev/sdb1
-   
-   UUID=2b0b3a6c-fe07-4e18-b5a2-0d11b3d85ede	/boot     	ext4      	rw,relatime,data=ordered	0 2
-   
-   # /dev/sdb5
-   
-   UUID=bb33495f-19a8-4c27-a837-670b3b47578d      /home/zhilong/disk  ext4
-   rw,relatime,data=ordered	0 2
-   
-   #重启系统就ok了，#后面的都是注释，无关紧要；
-   ```
+    ```shell
+        sudo ls -l /dev/disk/by-uuid
+        # 来获得待挂载硬盘的uuid，然后打开/etc/fstab文件，然后，添加开机挂载硬盘，如：
 
-6. 文件名乱码问题: 不一致所以导致了文件名乱码的问题，解决这个问题需要对文件名进行转码。文件名转码工具convmv没安装的话用下面的命令安装：`sudo apt-get install convmv `
+        # /dev/sdb1
+
+        UUID=2b0b3a6c-fe07-4e18-b5a2-0d11b3d85ede	/         	ext4      	rw,relatime,data=ordered	0 1
+
+        # /dev/sdb1
+
+        UUID=2b0b3a6c-fe07-4e18-b5a2-0d11b3d85ede	/boot     	ext4      	rw,relatime,data=ordered	0 2
+
+        # /dev/sdb5
+
+        UUID=bb33495f-19a8-4c27-a837-670b3b47578d      /home/zhilong/disk  ext4
+        rw,relatime,data=ordered	0 2
+
+        #重启系统就ok了，#后面的都是注释，无关紧要；
+    ```
+
+
+6. 文件名乱码问题: 
+   方法1：不一致所以导致了文件名乱码的问题，解决这个问题需要对文件名进行转码。文件名转码工具convmv没安装的话用下面的命令安装：`sudo apt-get install convmv `
    复制代码 
    convmv 使用方法：convmv -f 源编码 -t 新编码 [选项] 文件名常用参数：-r 递归处理子文件夹–notest 真正进行操作，默认情况下是不对文件进行真实操作–list 显示所有支持的编码–unescap 可以做一下转义，比如把%20变成空格
    主要方法:
-   `convmv -f GBK -t UTF-8 --notest -r *`     把当前文件夹下所有乱码文件名改过来;
-
+`convmv -f GBK -t UTF-8 --notest -r *`     把当前文件夹下所有乱码文件名改过来;
+   
+   方法2：
+   
+   ```
+   1. 通过unzip行命令解压，指定字符集
+   unzip -O CP936 xxx.zip (用GBK, GB18030也可以)
+   有趣的是unzip的manual中并无这个选项的说明, unzip --help对这个参数有一行简单的说明。
+   
+   2. 在环境变量中，指定unzip参数，总是以指定的字符集显示和解压文件
+   /etc/environment中加入2行
+   UNZIP="-O CP936"
+   ZIPINFO="-O CP936"
+   ```
+   
+   <br><br>
+   
 7. 命令不输出信息到屏幕: 如何让有大量屏幕无用输出的命令（比如解压超多文件时的unzip命令，会输出大量解压文件到屏幕）不输出信息在屏幕，又不会浪费磁盘IO，答案是（unzip xxx.zip >> /dev/null)，这样，信息全部被指向不存在的设备，等于抛弃这些信息;
 
 8. ubuntu查找包含某关键字的文件:
@@ -114,21 +130,23 @@
     # deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-proposed main restricted universe multiverse
     ```
 
-    Debian源请参考：<https://mirror.tuna.tsinghua.edu.cn/help/debian/>
 
+    Debian源请参考：<https://mirror.tuna.tsinghua.edu.cn/help/debian/>
+    
     <br><br>
 
 11. 联想拯救者手提电脑重装ubuntu后wifi没用，可用以下步骤：
 
-       ```
+ ```
        sudo gedit /etc/modprobe.d/blacklist.conf
        最后加入一行：
        blacklist ideapad_laptop
-       ```
-    
+ ```
+
        <br><br>
 
 12. 当要将自己的库添加到编译器能搜索到的路径的时候，比如`/home/jhd/Documents/jhd_projects/zhps_jcpt/listener/linux64/lib`，此时，可以` sudo vim /etc/ld.so.conf`，在ld.so.conf最后加上一行：`/home/jhd/Documents/jhd_projects/zhps_jcpt/listener/linux64/lib`，然后保存退出，执行：`sudo ldconfig`即可；<br><br>
+
 
 13.  设置代理：
 
@@ -212,5 +230,36 @@
 
     <br><br>
 
-23. 
+23. 自动登录服务器的脚本：
 
+    - 首先要安装expect: `$sudo apt-get install expect`
+
+    - //然后，编写shell脚本：load.sh
+
+      ```
+      #! /usr/bin/expect
+      set timeout 300
+      spawn ssh root@47.113.100.222
+      expect "*password:"
+      send "mzdykj0208hakka*#\r"
+      interact
+      ```
+
+    - 执行：`./load.sh`，注意，不要用`bash load.sh`这样会默认用bash执行，而spawn这些命令会找不到，因为这些命令都是expect下的；
+
+    <br><br>
+
+24. 点击图标最小化：
+
+    - 安装：`$sudo apt install dconf-editor`;
+    - 打开： `$dconf-editor`;
+    - 打开后在搜索栏搜索：`dash-to-dock`;
+    - 进入搜索到的文件夹，拉下去，看到"click-action"字样，再点进去，把"Use default value"关掉，然后Custom Value选择`minimize-or-previews`，至此完成；<br><br>
+
+25. 
+
+    
+
+    
+
+  
