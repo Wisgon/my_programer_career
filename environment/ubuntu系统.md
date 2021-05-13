@@ -256,7 +256,9 @@
     - 打开后在搜索栏搜索：`dash-to-dock`;
     - 进入搜索到的文件夹，拉下去，看到"click-action"字样，再点进去，把"Use default value"关掉，然后Custom Value选择`minimize-or-previews`，至此完成；<br><br>
 
-25. 
+25. ubuntu下好用的截图工具是flameshot，安装：`sudo apt-get install flameshot`<br><br>
+
+26. 
 
     
 

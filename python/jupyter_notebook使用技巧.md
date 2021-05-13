@@ -19,3 +19,11 @@ c.NotebookApp.notebook_dir= '/home/jhd/sda1/Documents/teacher/student_exercise/'
 编辑完成后，
 运行jupyter note book --config ./jupyter_note_book_config.py &
 即可
+
+
+
+
+
+jupyter notebook效率插件安装：
+`pip install jupyter_contrib_nbextensions && jupyter contrib nbextension install`
+
