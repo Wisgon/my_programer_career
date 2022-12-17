@@ -15,5 +15,10 @@
 
 3. ADO.net的mysql连接模板：`Server=127.0.0.1;Database=study1;uid=root;pwd=root;Charset=utf8`；<br><br>
 
-4. 
+4. phpmyadmin如何访问mysql8: Enter the container and change something just ok.
+   ```mysql
+   // 进入mysql：mysql -u root -p
+    ALTER USER root IDENTIFIED WITH mysql_native_password BY '123456';
+   ```
 
+5. 

@@ -188,9 +188,7 @@
     sudo add-apt-repository 'deb http://archive.ubuntu.com/ubuntu/ trusty universe'
     sudo apt install gcc-4.4
     ```
-
     <br><br>
-    
 18. vmware启动虚拟机，出现“Could not open /dev/vmmon: No such file or directory“错误，修复命令如下：
 
     ```shell
@@ -258,7 +256,14 @@
 
 25. ubuntu下好用的截图工具是flameshot，安装：`sudo apt-get install flameshot`<br><br>
 
-26. 
+26. ubuntu's useful gesture tool:
+    ```
+    sudo apt install gnome-shell-extension-manager
+    ```
+    open the tool just installed, then press "Browse" tab, search "Gesture Improvements" and install it.Then, in the "Installed" tab the extension will be there and press the gear to config it.<br><br>
+
+27. disable mouse middle button in vscode,just add `"editor.selectionClipboard": false` in setting json.<br><br>
+28. ubuntu install wechat: just cd ./packages and right click wechat.deb, then choose "open with other application",use "software install" to open it, then click "install", that's all.<br><br>
 
     
 
