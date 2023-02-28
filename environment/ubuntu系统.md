@@ -264,6 +264,7 @@
 
 27. disable mouse middle button in vscode,just add `"editor.selectionClipboard": false` in setting json.<br><br>
 28. ubuntu install wechat: just cd ./packages and right click wechat.deb, then choose "open with other application",use "software install" to open it, then click "install", that's all.<br><br>
+29. Ubuntu22.04 use wayland in some window.So the package Xlib can't work in some wayland base window.Then, use `sudo gedit /etc/gdm3/custom.conf `,if you can't find gdm3, find something like "gdm".Then, change the line like "# WaylandEnable=false",delete "#" to uncomment it.And then restart your computer.After restarted, if you have something wrong with your system, please recover the "custom.conf".Because ubuntu22.04 use wayland in some window,so if wayland is active status, there is some window that this app can't communicate.
 
     
 
